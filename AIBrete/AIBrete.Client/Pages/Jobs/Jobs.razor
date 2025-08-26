@@ -1,0 +1,52 @@
+﻿@page "/Jobs"
+@inherits Job
+@using AIBrete.Shared.Model
+@rendermode InteractiveWebAssembly
+
+
+<h3>Vacantes disponibles</h3>
+
+<div>
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <input type="text" @bind="searchTerm" @bind:event="oninput" @bind:after="ActualizarVacantes" placeholder="Buscar vacante..." class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-lg-4">Compatibilidad mínima: </label>
+        <div class="col-lg-2">
+            <input type="number" @bind="minCompatibilidad" @bind:event="oninput" @bind:after="ActualizarVacantes" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <input type="range" min="0" max="100" @bind="minCompatibilidad" @bind:event="oninput" @bind:after="ActualizarVacantes" class="form-range" />
+        </div>
+    </div>
+    <div class="form-check">
+        <label class="form-check-label">Orden Ascendente</label>
+        <input class="form-check-input" type="checkbox" @bind="Asc" @onclick="ActualizarVacantes" />
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var vacante in VacantesFiltradas)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 p-3 border shadow-sm">
+                    <h5>@vacante.Titulo</h5>
+                    <p><strong>Empresa:</strong> @vacante.Empresa</p>
+                    <p><strong>Ubicación:</strong> @vacante.Ubicacion</p>
+                    <p><strong>Compatibilidad:</strong> @vacante.Compatibilidad%</p>
+                    <button class="btn btn-info" @onclick="() => VerDetalles(vacante.Titulo)">Ver detalles</button>
+                    @if (UsuarioEsPro)
+                    {
+                        <button class="btn btn-success mt-2" @onclick="() => Postular(vacante.Titulo)">Postular automáticamente</button>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

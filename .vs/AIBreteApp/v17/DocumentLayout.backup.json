@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F311704-3784-44DE-8A61-8AE424351248}|AIBrete\\AIBrete.Client\\AIBrete.Client.csproj|c:\\users\\kgutierrez\\source\\repos\\aibreteapp\\aibrete\\aibrete.client\\pages\\jobs\\jobs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F311704-3784-44DE-8A61-8AE424351248}|AIBrete\\AIBrete.Client\\AIBrete.Client.csproj|solutionrelative:aibrete\\aibrete.client\\pages\\jobs\\jobs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F311704-3784-44DE-8A61-8AE424351248}|AIBrete\\AIBrete.Client\\AIBrete.Client.csproj|c:\\users\\kgutierrez\\source\\repos\\aibreteapp\\aibrete\\aibrete.client\\pages\\jobs\\jobs.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F311704-3784-44DE-8A61-8AE424351248}|AIBrete\\AIBrete.Client\\AIBrete.Client.csproj|solutionrelative:aibrete\\aibrete.client\\pages\\jobs\\jobs.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46C0E497-9DD0-4B82-A16E-6188EA636930}|AIBrete\\AIBrete\\AIBrete.csproj|c:\\users\\kgutierrez\\source\\repos\\aibreteapp\\aibrete\\aibrete\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46C0E497-9DD0-4B82-A16E-6188EA636930}|AIBrete\\AIBrete\\AIBrete.csproj|solutionrelative:aibrete\\aibrete\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46C0E497-9DD0-4B82-A16E-6188EA636930}|AIBrete\\AIBrete\\AIBrete.csproj|c:\\users\\kgutierrez\\source\\repos\\aibreteapp\\aibrete\\aibrete\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{46C0E497-9DD0-4B82-A16E-6188EA636930}|AIBrete\\AIBrete\\AIBrete.csproj|solutionrelative:aibrete\\aibrete\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38CBF6BC-F806-4C36-89F0-4EBE8CAAA9D5}|AIBrete.Shared\\AIBrete.Shared.csproj|c:\\users\\kgutierrez\\source\\repos\\aibreteapp\\aibrete.shared\\model\\vacante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38CBF6BC-F806-4C36-89F0-4EBE8CAAA9D5}|AIBrete.Shared\\AIBrete.Shared.csproj|solutionrelative:aibrete.shared\\model\\vacante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Jobs.razor.cs",
+              "DocumentMoniker": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor.cs",
+              "RelativeDocumentMoniker": "AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor.cs",
+              "ToolTip": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor.cs",
+              "RelativeToolTip": "AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:47:21.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete\\Program.cs",
+              "RelativeDocumentMoniker": "AIBrete\\AIBrete\\Program.cs",
+              "ToolTip": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete\\Program.cs",
+              "RelativeToolTip": "AIBrete\\AIBrete\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:17:27.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Jobs.razor",
+              "DocumentMoniker": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor",
+              "RelativeDocumentMoniker": "AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor",
+              "ToolTip": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor",
+              "RelativeToolTip": "AIBrete\\AIBrete.Client\\Pages\\Jobs\\Jobs.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T20:52:32.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "AIBrete\\AIBrete\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete\\AIBrete\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "AIBrete\\AIBrete\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T23:26:15.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Vacante.cs",
+              "DocumentMoniker": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete.Shared\\Model\\Vacante.cs",
+              "RelativeDocumentMoniker": "AIBrete.Shared\\Model\\Vacante.cs",
+              "ToolTip": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteApp\\AIBrete.Shared\\Model\\Vacante.cs",
+              "RelativeToolTip": "AIBrete.Shared\\Model\\Vacante.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T14:45:45.044Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
