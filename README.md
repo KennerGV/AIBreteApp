@@ -27,12 +27,13 @@ Este proyecto se encuentra en una fase de investigación y desarrollo.
 - .NET 8
 - Blazor WebAssembly
 - ASP.NET Core Web API
-- Entity Framework Core (o preferido)
+- Entity Framework Core
 - Comunicación cliente–servidor mediante REST
 
 ## Instalación
 1. Clona el repositorio:
-   git clone https://github.com/tu_usuario/AIBrete.git
+   git clone https://github.com/KennerGV/AIBreteApp.git
    cd AIBrete
-
+2. Abre la solución en Visual Studio
+3. Toca el botón de Ejecutar
 ##
