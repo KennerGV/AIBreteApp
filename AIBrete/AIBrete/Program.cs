@@ -1,13 +1,22 @@
 using AIBrete.Client.Pages;
 using AIBrete.Components;
 using AIBrete.Service.Services;
+using AIBrete.Shared.Configuration;
 using AIBrete.Shared.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveWebAssemblyComponents();
+    .AddInteractiveWebAssemblyComponents()
+    .AddInteractiveServerComponents();
+
+
+builder.Services.AddHttpClient<IVacanteService, VacanteService>();
+
+builder.Services.Configure<ConfigurationOptions>(
+    builder.Configuration.GetSection("Configuracion"));
+    
 
 builder.Services.AddScoped<IVacanteService, VacanteService>();
 
@@ -31,6 +40,7 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(AIBrete.Client._Imports).Assembly);
 
