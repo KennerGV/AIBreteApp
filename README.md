@@ -33,7 +33,6 @@ Este proyecto se encuentra en una fase de investigación y desarrollo.
 ## Instalación
 1. Clona el repositorio:
    git clone https://github.com/KennerGV/AIBreteApp.git
-   cd AIBrete
 2. Abre la solución en Visual Studio
 3. Toca el botón de Ejecutar
 ##
