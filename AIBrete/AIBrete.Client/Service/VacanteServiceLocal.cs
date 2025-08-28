@@ -1,33 +1,48 @@
-﻿using AIBrete.Shared.Model;
+﻿using AIBrete.Shared.Configuration;
+using AIBrete.Shared.Model;
 using AIBrete.Shared.Service.Interfaces;
+using Microsoft.Extensions.Options;
+using System.Net.Http.Json;
 
 namespace AIBrete.Client.Service
 {
     public class VacanteServiceLocal : IVacanteService
     {
-        private readonly List<Vacante> _vacantes = new()
-        {
-            new Vacante("Desarrollador .NET", "TechCorp", "San José", 90),
-            new Vacante("Ingeniero de Software", "SoftSolutions", "Heredia", 72),
-            new Vacante("QA Tester", "QualityApps", "Alajuela", 55),
-            new Vacante("Frontend Developer", "WebWorks", "Cartago", 40),
-            new Vacante("Backend Developer", "CodeBase", "San José", 78),
-            new Vacante("DevOps Engineer", "CloudOps", "Heredia", 65),
-            new Vacante("Data Analyst", "DataCorp", "Alajuela", 82),
-            new Vacante("Project Manager", "PMGroup", "Cartago", 70),
-            new Vacante("UX Designer", "DesignHub", "San José", 100)
-        };
 
-        public IEnumerable<Vacante> GetVacantes(string searchTerm, int minCompatibilidad, bool asc)
-        {
-            var query = _vacantes.Where(v =>
-                v.Compatibilidad >= minCompatibilidad &&
-                (string.IsNullOrWhiteSpace(searchTerm) ||
-                 v.Titulo.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)));
+        private readonly HttpClient _httpClient;
+        private readonly ConfigurationOptions _config;
+        private readonly string _endpointBackEnd;
 
-            return asc
-                ? query.OrderBy(v => v.Compatibilidad)
-                : query.OrderByDescending(v => v.Compatibilidad);
+        public VacanteServiceLocal(HttpClient httpClient, IOptions<ConfigurationOptions> configOptions)
+        {
+            _httpClient = httpClient;
+            _config = configOptions.Value;
+            _endpointBackEnd = "api/JobAPI";
+        }
+
+        public async Task<IEnumerable<Vacante>> GetVacantes(string searchTerm, int minCompatibilidad, bool ascendente)
+        {
+            // 1. Obtener la URL base del config
+            var uriBase = _config.BackendApiUrl;
+
+            // 2. Usar UriBuilder para armar la URL completa
+            var builder = new UriBuilder(uriBase)
+            {
+                Path = _endpointBackEnd
+            };
+
+            var query = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            query["searchTerm"] = searchTerm;
+            query["minCompatibilidad"] = minCompatibilidad.ToString();
+            query["ascendente"] = ascendente.ToString().ToLower();
+            builder.Query = query.ToString();
+
+            var finalUri = builder.Uri;
+
+            // 3. Realizar la petición con el HttpClient
+            var response = await _httpClient.GetAsync(finalUri);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<IEnumerable<Vacante>>();
         }
 
         public void VerDetalles(string titulo)

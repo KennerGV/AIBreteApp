@@ -1,7 +1,9 @@
 ﻿@page "/Jobs"
 @inherits Job
 @using AIBrete.Shared.Model
-@rendermode InteractiveWebAssembly
+@* @rendermode InteractiveWebAssembly *@
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
 
 
 <h3>Vacantes disponibles</h3>
@@ -25,27 +27,93 @@
     </div>
     <div class="form-check">
         <label class="form-check-label">Orden Ascendente</label>
-        <input class="form-check-input" type="checkbox" @bind="Asc" @onclick="ActualizarVacantes" />
+        <input class="form-check-input" type="checkbox" @bind="Asc" @bind:event="onchange" @bind:after="ActualizarVacantes" />
+    </div>
+    <div class="form-group row">
+        <label>Seleccionar país:</label>
+        <div class="col-lg-6">
+            <select @bind="SelectedCountryCode" @bind:event="onchange" @bind:after="ActualizarVacantes" class="form-control mb-3">
+            <option value="">Todos los países</option>
+            @foreach (var country in Countries)
+            {
+                <option value="@country.Code">
+                    @country.NameEs
+                </option>
+            }
+        </select>
+        </div>
     </div>
 </div>
 
 <div class="container">
     <div class="row">
-        @foreach (var vacante in VacantesFiltradas)
+        @if (!_loaded)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 p-3 border shadow-sm">
-                    <h5>@vacante.Titulo</h5>
-                    <p><strong>Empresa:</strong> @vacante.Empresa</p>
-                    <p><strong>Ubicación:</strong> @vacante.Ubicacion</p>
-                    <p><strong>Compatibilidad:</strong> @vacante.Compatibilidad%</p>
-                    <button class="btn btn-info" @onclick="() => VerDetalles(vacante.Titulo)">Ver detalles</button>
-                    @if (UsuarioEsPro)
-                    {
-                        <button class="btn btn-success mt-2" @onclick="() => Postular(vacante.Titulo)">Postular automáticamente</button>
+            <!-- Loading -->
+            <style>
+                .loading {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                    transition: 1s all;
+                    opacity: 0;
+                }
+
+                    .loading.show {
+                        opacity: 1;
                     }
-                </div>
+
+                    .loading .spin {
+                        border: 3px solid hsla(185, 100%, 62%, 0.2);
+                        border-top-color: #3cefff;
+                        border-radius: 50%;
+                        width: 3em;
+                        height: 3em;
+                        animation: spin 1s linear infinite;
+                    }
+
+                @@keyframes spin {
+                    to
+
+                {
+                    transform: rotate(360deg);
+                }
+
+                }
+            </style>
+            <div class="loading show">
+                <div class="spin"></div>
             </div>
+        }
+        else if (!VacantesFiltradas.Any())
+        {
+            <p>No hay vacantes disponibles</p>
+        }
+        else
+        {
+            @foreach (var vacante in VacantesFiltradas)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 p-3 border shadow-sm">
+                        <h5>@vacante.Titulo</h5>
+                        <p><strong>Empresa:</strong> @vacante.Empresa</p>
+                        <p><strong>Ubicación:</strong> @vacante.Ubicacion</p>
+                        <p><strong>Compatibilidad:</strong> @vacante.Compatibilidad %</p>
+                        <button class="btn btn-info" @onclick="() => VerDetalles(vacante.Titulo)">Ver detalles</button>
+                        @if (UsuarioEsPro)
+                        {
+                            <button class="btn btn-success mt-2" @onclick="() => Postular(vacante.Titulo)">Postular automáticamente</button>
+                        }
+                    </div>
+                </div>
+            }
         }
     </div>
 </div>

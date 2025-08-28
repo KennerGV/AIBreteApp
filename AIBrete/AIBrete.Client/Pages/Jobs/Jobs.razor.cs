@@ -14,19 +14,30 @@ namespace AIBrete.Client.Pages.Jobs
         protected IVacanteService VacanteService { get; set; }
 
         protected IEnumerable<Vacante> VacantesFiltradas { get; set; }
+        protected List<Region> Countries { get; set; }
+        protected string SelectedCountryCode { get; set; }
 
         protected bool UsuarioEsPro => true;
+        protected bool _loaded = false;
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
             // Inicializar VacantesFiltradas al principio
-            VacantesFiltradas = VacanteService.GetVacantes(searchTerm, minCompatibilidad, Asc);
+            Countries = CountryProvider.GetCountries();
+            VacantesFiltradas = await VacanteService.GetVacantes(searchTerm, minCompatibilidad, Asc);
+
+            _loaded = true;
         }
 
-        protected void ActualizarVacantes()
+        protected async Task ActualizarVacantes()
         {
             // Actualizar VacantesFiltradas cuando cambian los filtros
-            VacantesFiltradas = VacanteService.GetVacantes(searchTerm, minCompatibilidad, Asc);
+            VacantesFiltradas = await VacanteService.GetVacantes(searchTerm, minCompatibilidad, Asc);
+            if (!string.IsNullOrEmpty(SelectedCountryCode))
+            {
+                VacantesFiltradas = VacantesFiltradas.Where(v => v.Ubicacion == SelectedCountryCode).ToList();
+            }
+            _loaded = true;
         }
 
         protected void VerDetalles(string titulo)

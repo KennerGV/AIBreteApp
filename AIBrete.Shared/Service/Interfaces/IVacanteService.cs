@@ -4,6 +4,6 @@ namespace AIBrete.Shared.Service.Interfaces
 {
     public interface IVacanteService
     {
-        IEnumerable<Vacante> GetVacantes(string searchTerm, int minCompatibilidad, bool ascendente);
+        Task<IEnumerable<Vacante>> GetVacantes(string searchTerm, int minCompatibilidad, bool ascendente);
     }
 }
