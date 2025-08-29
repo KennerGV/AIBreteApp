@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AIBrete.Client",
   "resources": {
-    "hash": "sha256-QV+WV5mOKLbcfX/zk+GGUXeCOhtQtzBfos3m0nJDqbg=",
+    "hash": "sha256-JzQciwnNQNie+Hq25VSPHrHOMCvaS7CxOJ+P5/SrjzE=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-O/NCYcAN9uPocD7ns7AzF/cqx7f5vL1PTJCQs0vEXyk="
     },
@@ -214,12 +214,12 @@
       "mscorlib.wasm": "sha256-RLW/7NVuhoPfq151II3kX2kWHgBwQgpCw9aemQNg3to=",
       "netstandard.wasm": "sha256-lAg5WvTiA8wbsIwlr51xh0YWpXT9F5EX3Cnv+11O/mU=",
       "System.Private.CoreLib.wasm": "sha256-3O3muuRQwoLRecYRjfIFWUURvTjP4EmD2O8wYg2UDNY=",
-      "AIBrete.Shared.wasm": "sha256-3E+N4cAWN8HIblK2JTWYbeYZdgsSP7Biwf9Z56N31Z4=",
-      "AIBrete.Client.wasm": "sha256-ufWG+HpjJTe1vKEtA/9EDdVxHUDEH8/i3klddIbT29s="
+      "AIBrete.Shared.wasm": "sha256-2LwH7x+cG+lS/OXEmlka8en6DjGLfgOaHXFjFDwW9UI=",
+      "AIBrete.Client.wasm": "sha256-sRu+xjZF/IzaiNpuB1RqDJCgtm74UH0qmFBFcuaZ8m0="
     },
     "pdb": {
-      "AIBrete.Shared.pdb": "sha256-bsG2O7kyi1qEH9Gx66l8TPK1QjTR1X9W6k9QwnV/d+M=",
-      "AIBrete.Client.pdb": "sha256-ndE1bxxCNSzDlqODuar0WDe9XFCML0C2jfy2y/V6/f4="
+      "AIBrete.Shared.pdb": "sha256-Wtzq01sZT9xDepRXbVwYCATrrb/YjmdBnjM7ZzVaZZI=",
+      "AIBrete.Client.pdb": "sha256-7FHBYGgIBnYVHjs+UMDYoRrpUzcRdVme7gShaQBSqtU="
     }
   },
   "cacheBootResources": true,

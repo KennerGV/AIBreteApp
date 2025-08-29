@@ -178,3 +178,4 @@ C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete\AIBrete.Clie
 C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete\AIBrete.Client\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete\AIBrete.Client\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete\AIBrete.Client\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\kgutierrez\Documents\AIBreteProyecto\AIBreteApp\AIBrete\AIBrete.Client\obj\Debug\net8.0\staticwebassets.build.json
