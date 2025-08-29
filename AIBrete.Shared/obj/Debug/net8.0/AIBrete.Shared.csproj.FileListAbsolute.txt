@@ -9,3 +9,15 @@ C:\Users\kgutierrez\source\repos\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBr
 C:\Users\kgutierrez\source\repos\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\refint\AIBrete.Shared.dll
 C:\Users\kgutierrez\source\repos\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.pdb
 C:\Users\kgutierrez\source\repos\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\ref\AIBrete.Shared.dll
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\bin\Debug\net8.0\AIBrete.Shared.deps.json
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\bin\Debug\net8.0\AIBrete.Shared.dll
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\bin\Debug\net8.0\AIBrete.Shared.pdb
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.AssemblyInfoInputs.cache
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.AssemblyInfo.cs
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.csproj.CoreCompileInputs.cache
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.dll
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\refint\AIBrete.Shared.dll
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.pdb
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\ref\AIBrete.Shared.dll
+C:\Users\kgutierrez\source\repos\AIBreteProyecto\AIBreteApp\AIBrete.Shared\obj\Debug\net8.0\AIBrete.Shared.csproj.AssemblyReference.cache
