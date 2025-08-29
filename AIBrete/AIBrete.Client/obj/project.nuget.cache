@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LF3sLZtklhQ=",
+  "dgSpecHash": "FlWlMU6wP0c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteProyecto\\AIBreteApp\\AIBrete\\AIBrete.Client\\AIBrete.Client.csproj",
+  "projectFilePath": "C:\\Users\\kgutierrez\\Documents\\AIBreteProyecto\\AIBreteApp\\AIBrete\\AIBrete.Client\\AIBrete.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kgutierrez\\.nuget\\packages\\blazored.modal\\7.3.1\\blazored.modal.7.3.1.nupkg.sha512",
     "C:\\Users\\kgutierrez\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.19\\microsoft.aspnetcore.authorization.8.0.19.nupkg.sha512",

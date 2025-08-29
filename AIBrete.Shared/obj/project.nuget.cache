@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PNbqDogjv1A=",
+  "dgSpecHash": "vIMhj0TFx0k=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kgutierrez\\source\\repos\\AIBreteProyecto\\AIBreteApp\\AIBrete.Shared\\AIBrete.Shared.csproj",
+  "projectFilePath": "C:\\Users\\kgutierrez\\Documents\\AIBreteProyecto\\AIBreteApp\\AIBrete.Shared\\AIBrete.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kgutierrez\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.19\\microsoft.aspnetcore.authorization.8.0.19.nupkg.sha512",
     "C:\\Users\\kgutierrez\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.19\\microsoft.aspnetcore.components.8.0.19.nupkg.sha512",

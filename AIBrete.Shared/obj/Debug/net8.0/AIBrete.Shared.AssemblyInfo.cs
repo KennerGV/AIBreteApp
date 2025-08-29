@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIBrete.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c5e4810484beff19ab252b970197837d24c017a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIBrete.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIBrete.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
