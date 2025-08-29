@@ -1,6 +1,5 @@
 ﻿@page "/Jobs"
 @inherits Job
-@using AIBrete.Shared.Model
 @* @rendermode InteractiveWebAssembly *@
 @rendermode @(new InteractiveServerRenderMode(prerender: false))
 
@@ -43,6 +42,8 @@
         </select>
         </div>
     </div>
+    <InputFile OnChange="OnCvSelected" />
+    <button @onclick="UploadCv" disabled="@(!isFileSelected)">Subir CV</button>
 </div>
 
 <div class="container">

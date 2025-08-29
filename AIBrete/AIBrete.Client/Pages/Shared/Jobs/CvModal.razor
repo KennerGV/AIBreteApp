@@ -1,0 +1,15 @@
+﻿@using Blazored.Modal
+@using Blazored.Modal.Services
+@inject IModalService Modal
+
+@code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    [Parameter] public string TextContent { get; set; } = string.Empty;
+
+    async Task Close() => await ModalInstance.CloseAsync(ModalResult.Ok(true));
+}
+<div class="form-group row">
+    <label>Datos del Cv</label>
+    <textarea class="form-control" readonly="readonly" @bind="TextContent" rows="5" />
+</div>
+<button class="btn btn-secondary" @onclick="Close">Cerrar</button>

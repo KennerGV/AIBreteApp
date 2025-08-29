@@ -1,8 +1,10 @@
 using AIBrete.Client.Pages;
+using AIBrete.Client.Service;
 using AIBrete.Components;
 using AIBrete.Service.Services;
 using AIBrete.Shared.Configuration;
 using AIBrete.Shared.Service.Interfaces;
+using Blazored.Modal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,14 +13,16 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddBlazoredModal();
+
+builder.Services.AddServerSideBlazor()
+    .AddCircuitOptions(options => { options.DetailedErrors = true; });
 
 builder.Services.AddHttpClient<IVacanteService, VacanteService>();
+builder.Services.AddHttpClient<ICvService, CvServiceLocal>();
 
 builder.Services.Configure<ConfigurationOptions>(
     builder.Configuration.GetSection("Configuracion"));
-    
-
-builder.Services.AddScoped<IVacanteService, VacanteService>();
 
 var app = builder.Build();
 
