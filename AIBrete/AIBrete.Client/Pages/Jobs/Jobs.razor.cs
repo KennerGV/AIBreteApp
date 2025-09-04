@@ -9,13 +9,14 @@ using System.Reflection;
 
 namespace AIBrete.Client.Pages.Jobs
 {
-    public class Job : ComponentBase
+    public partial class Job : ComponentBase
     {
         protected string searchTerm = "";
         protected int minCompatibilidad = 60;
         protected bool Asc = false;
         protected string infoCV = "";
         protected string tituloCvModal = "CV PROCESADO";
+        protected string tituloDetailModal = "DETALLES DE LA VACANTE";
 
         [Inject]
         protected IVacanteService VacanteService { get; set; }
@@ -27,6 +28,8 @@ namespace AIBrete.Client.Pages.Jobs
         private IModalService Modal { get; set; } = default!;
         protected IEnumerable<Vacante> VacantesFiltradas { get; set; }
         protected List<Region> Countries { get; set; }
+
+        protected CvData DatosCV { get; set; }
         protected string SelectedCountryCode { get; set; }
 
         protected bool UsuarioEsPro => true;
@@ -50,7 +53,8 @@ namespace AIBrete.Client.Pages.Jobs
             VacantesFiltradas = await VacanteService.GetVacantes(searchTerm, minCompatibilidad, Asc);
             if (!string.IsNullOrEmpty(SelectedCountryCode))
             {
-                VacantesFiltradas = VacantesFiltradas.Where(v => v.Ubicacion == SelectedCountryCode).ToList();
+                var countrySelected = Countries.Where(x => x.Code == SelectedCountryCode).FirstOrDefault();
+                VacantesFiltradas = VacantesFiltradas.Where(v => v.Ubicacion == countrySelected.NameEs).ToList();
             }
             _loaded = true;
         }
@@ -63,18 +67,22 @@ namespace AIBrete.Client.Pages.Jobs
         {
             if (selectedFile == null)
                 return;
-
-            infoCV = await CvService.UploadCvAsync(selectedFile);
+            _loaded = false;
+            DatosCV = await CvService.UploadCvAsync(selectedFile);
             var parameters = new ModalParameters();
-            parameters.Add(nameof(CvModal.TextContent), infoCV);
-
+            parameters.Add(nameof(CvModal.datosCurriculum), DatosCV);
+            _loaded = true;
             Modal.Show<CvModal>(tituloCvModal, parameters);
             isFileSelected = false;
         }
 
-        protected void VerDetalles(string titulo)
+        protected void VerDetalles(Vacante vacanteSelected)
         {
-            Console.WriteLine($"Ver detalles de: {titulo}");
+            _loaded = false;
+            var parameters = new ModalParameters();
+            parameters.Add(nameof(JobDetail.datosVacante), vacanteSelected);
+            _loaded = true;
+            Modal.Show<JobDetail>(tituloDetailModal, parameters);
         }
 
         protected void Postular(string titulo)

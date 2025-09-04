@@ -1,0 +1,59 @@
+﻿.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4b2ba3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: 1s all;
+    opacity: 0;
+}
+
+    .loading.show {
+        opacity: 1;
+    }
+
+    .loading .spin {
+        border: 3px solid hsla(185, 100%, 62%, 0.2);
+        border-top-color: #3cefff;
+        border-radius: 50%;
+        width: 3em;
+        height: 3em;
+        animation: spin 1s linear infinite;
+    }
+
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading .pulse {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    animation: pulse 1s infinite linear;
+}
+
+@keyframes pulse {
+    0%{
+        transform: scale(0.15);
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}

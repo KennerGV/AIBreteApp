@@ -1,0 +1,59 @@
+﻿body {
+    background: url('/images/your-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(5px);
+}
+
+.login-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 360px;
+}
+
+    .login-card h3 {
+        margin-bottom: 1.5rem;
+        color: #333;
+    }
+
+    .login-card .btn-block {
+        width: 100%;
+    }
+
+
+/*.split-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-panel {
+    flex: 1;
+    background: url('/images/login-bg.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        display: none;
+    }
+}*/
