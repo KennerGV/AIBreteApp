@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\AIBrete.Shared\AIBrete.Shared.csproj" />
     <ProjectReference Include="..\AIBrete.Client\AIBrete.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.19" />
   </ItemGroup>
 

@@ -1,15 +1,127 @@
-﻿@using Blazored.Modal
+﻿@using AIBrete.Shared.Model
+@using Blazored.Modal
 @using Blazored.Modal.Services
 @inject IModalService Modal
 
 @code {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
     [Parameter] public string TextContent { get; set; } = string.Empty;
+    [Parameter] public CvData datosCurriculum { get; set; } = new();
 
     async Task Close() => await ModalInstance.CloseAsync(ModalResult.Ok(true));
 }
-<div class="form-group row">
-    <label>Datos del Cv</label>
-    <textarea class="form-control" readonly="readonly" @bind="TextContent" rows="5" />
+<div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Nombre Completo</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosCurriculum.Nombre" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Telefono</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosCurriculum.Telefono" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Email</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosCurriculum.Email" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Dirección</label>
+        <div class="col-lg-8">
+            <textarea class="form-control" readonly="readonly" @bind="datosCurriculum.Direccion" rows="2" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Sobre Mí</label>
+        <div class="col-lg-8">
+            <textarea class="form-control" readonly="readonly" @bind="datosCurriculum.sobreMi" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        @if (datosCurriculum.Habilidades.Any())
+        {
+            <div class="form-group row mb-3">
+                <label class="col-lg-4">Habilidades Tecnicas</label>
+            </div>
+            var habilidadTexto = "";
+            @foreach (var habilidad in datosCurriculum.Habilidades)
+            {
+                habilidadTexto +=  $"{habilidad}\n";
+                
+            }
+            <div class="form-group row mb-3">
+                <label class="col-lg-4"></label>
+                <div class="col-lg-8">
+                    <textarea class="form-control"
+                              readonly="readonly"
+                              @bind="@habilidadTexto"
+                              rows="5" />
+                </div>
+            </div>
+        }        
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Experiencia</label>
+    </div>
+    <div class="form-group row mb-3">
+        @foreach (var experiencia in datosCurriculum.Experiencia)
+        {
+            var experienciaTexto = experiencia.ToString();
+            <div class="form-group row mb-3">
+                <label class="col-lg-4"></label>
+                <div class="col-lg-8">
+                    <textarea class="form-control"
+                              readonly="readonly"
+                              @bind="@experienciaTexto"
+                              rows="3" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Educación</label>
+    </div>
+    <div class="form-group row mb-3">
+        @foreach (var educacion in datosCurriculum.Educacion)
+        {
+            var educacionTexto = educacion.ToString();
+            <div class="form-group row mb-3">
+                <label class="col-lg-4"></label>
+                <div class="col-lg-8">
+                    <textarea class="form-control"
+                              readonly="readonly"
+                              @bind="@educacionTexto"
+                              rows="3" />
+                </div>
+            </div>    
+        }
+    </div>    
+    <div class="form-group row mb-3">
+        @if (datosCurriculum.Cursos.Any())
+        {
+            <div class="form-group row mb-3">
+                <label class="col-lg-4">Cursos y Certificaciones</label>
+            </div>
+            var cursosTexto = "";
+            @foreach (var curso in datosCurriculum.Cursos)
+            {
+                cursosTexto += $"{curso}\n";
+            }
+            <div class="form-group row mb-3">
+                <label class="col-lg-4"></label>
+                <div class="col-lg-8">
+                    <textarea class="form-control"
+                          readonly="readonly"
+                          @bind="@cursosTexto"
+                          rows="5" />
+                </div>
+            </div>
+        }        
+    </div>
+    <button class="btn btn-secondary" @onclick="Close">Cerrar</button>
 </div>
-<button class="btn btn-secondary" @onclick="Close">Cerrar</button>
+

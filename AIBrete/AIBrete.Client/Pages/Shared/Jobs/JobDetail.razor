@@ -1,0 +1,35 @@
+﻿@using AIBrete.Shared.Model
+<div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Posición</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosVacante.Titulo" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Empresa</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosVacante.Empresa" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Ubicación</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosVacante.Ubicacion" rows="5" />
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-lg-4">Compatibilidad</label>
+        <div class="col-lg-8">
+            <input type="text" class="form-control" readonly="readonly" @bind="datosVacante.Compatibilidad" rows="5" />
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    [Parameter] public string TextContent { get; set; } = string.Empty;
+    [Parameter] public Vacante datosVacante { get; set; } = new();
+
+    async Task Close() => await ModalInstance.CloseAsync(ModalResult.Ok(true));
+}

@@ -1,32 +1,26 @@
-using AIBrete.Client.Pages;
-using AIBrete.Client.Service;
 using AIBrete.Components;
-using AIBrete.Service.Services;
-using AIBrete.Shared.Configuration;
-using AIBrete.Shared.Service.Interfaces;
-using Blazored.Modal;
+using AIBrete.Extensions;
+using AIBrete.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// UI Components
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddBlazoredModal();
-
 builder.Services.AddServerSideBlazor()
     .AddCircuitOptions(options => { options.DetailedErrors = true; });
 
-builder.Services.AddHttpClient<IVacanteService, VacanteService>();
-builder.Services.AddHttpClient<ICvService, CvServiceLocal>();
+// Servicios personalizados
+builder.Services.AddCustomServices(builder.Configuration);
 
-builder.Services.Configure<ConfigurationOptions>(
-    builder.Configuration.GetSection("Configuracion"));
+// Autenticación y Autorización con RS256
+builder.Services.AddJwtRsaAuthentication(builder.Configuration);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
@@ -34,13 +28,15 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseMiddleware<TokenPopulationMiddleware>();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
@@ -49,3 +45,4 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(typeof(AIBrete.Client._Imports).Assembly);
 
 app.Run();
+
