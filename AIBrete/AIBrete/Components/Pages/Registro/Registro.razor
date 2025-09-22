@@ -1,0 +1,89 @@
+﻿@page "/signup"
+@using AIBrete.Components.Shared
+@inherits Registry
+
+<style>
+    input::-ms-reveal,
+    input::-ms-clear {
+        display: none;
+    }
+</style>
+<div class="container">
+    <div class="left-panel">
+        <div class="content">
+            <h1>Registrate en AIBrete y potencia tu busqueda laboral con IA.</h1>
+            <h2>Bienvenido a AIBrete.</h2>
+            @* <img src="images/imagenproyect.jpg" alt="Rocket Illustration"> *@
+        </div>
+    </div>
+    <div class="right-panel">
+        <div class="form-box">
+            <div class="tabs">
+                <a href="login" class="tab">Login</a>
+                <a href="signup" class="tab active">Registrarse</a>
+            </div>
+            <EditForm Model="@userModel" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <h3 class="text-center mb-3">Registrarse</h3>
+
+
+                <ValidatedFloatingInput Label="Full Name"
+                                        Value="@userModel.Login"
+                                        ValueChanged="@((val) => userModel.Login = val)"
+                                        ValueExpression="(() => userModel.Login)" />
+
+                <ValidatedFloatingInput Label="Email"
+                                        Value="@userModel.Email"
+                                        ValueChanged="@((val) => userModel.Email = val)"
+                                        ValueExpression="(() => userModel.Email)" />
+
+                <div class="form-group floating-input">
+                    <label for="userModel.Password">Password</label>
+                    <ValidationMessage For="@(() => userModel.Password)" />
+                    <PasswordInput @bind-Value="userModel.Password" placeholder="Password" @oninput="ValidatePassword" />                    
+                    @if (userModel.PasswordErrors.Any())
+                    {
+                        <ul class="text-danger">
+                            @foreach (var error in userModel.PasswordErrors)
+                            {
+                                <li>@error</li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+                <div class="form-group floating-input">
+                    <ValidationMessage For="@(() => userModel.ConfirmPassword)" />
+                    <PasswordInput @bind-Value="userModel.ConfirmPassword" placeholder="Confirm Password" @oninput="ValidatePasswordMatch" />                    
+                    @if (!string.IsNullOrEmpty(passwordMatchError))
+                    {
+                        <div class="text-danger">@passwordMatchError</div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox">
+                        <InputCheckbox @bind-Value="userModel.AgreeTerms" />
+                        I agree all statements in terms of service
+                    </label>
+                    <ValidationMessage For="@(() => userModel.AgreeTerms)" />
+                </div>
+                
+                <button type="submit">Ingresar</button>
+            </EditForm>
+            @if (loginError)
+            {
+                <div class="alert alert-danger mt-3">
+                    <ul>
+                        @foreach (var error in result?.Errors ?? new List<string>())
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                </div>
+            }
+            <p class="member-text">I'm already member</p>
+        </div>
+    </div>
+</div>
+

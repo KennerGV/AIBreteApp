@@ -1,9 +1,9 @@
 ﻿using AIBrete.Service.Services.Auth;
-using AIBrete.Shared.Service.Interfaces.Auth;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.ComponentModel.DataAnnotations;
-namespace AIBrete.Components.Pages.Login
+
+namespace AIBrete.Components.Pages.Auth
 {
     public partial class Log : ComponentBase
     {
@@ -41,3 +41,4 @@ namespace AIBrete.Components.Pages.Login
         }
     }
 }
+

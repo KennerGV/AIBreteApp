@@ -1,0 +1,66 @@
+﻿
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.info-container {
+    width: 100%;
+    /*max-width: 600px;*/
+    margin: 100px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+    .info-container h2 {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+.input, .textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.upload-section {
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00bfa6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.custom-file {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1f618d;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ocultamos solo visualmente */
+#fileUpload {
+    display: none;
+}
+#CvUpload {
+    display: none;
+}

@@ -1,0 +1,78 @@
+﻿@using System.Linq.Expressions
+@using Microsoft.AspNetCore.Components.Forms
+
+<div class="validated-floating-input">
+    @if (ShowError)
+    {
+        <ValidationMessage For="@ValueExpression" />
+    }
+    <FloatingInput Label="@Label"
+                   Id="@Id"
+                   Type="@Type"
+                   Value="@Value"
+                   ValueChanged="@OnValueChanged"
+                   ValueExpression="@ValueExpression"
+                   LabelClass="@(ShowError && !ShouldFloat ? "label-error" : "")"
+                   InputClass="@(ShowError && !ShouldFloat ? "input-error" : "")"
+                   OnFocus="HandleFocus"
+                   OnBlur="HandleBlur" />
+
+    
+</div>
+
+@code {
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Id { get; set; } = Guid.NewGuid().ToString();
+    [Parameter] public string Type { get; set; } = "text";
+    [Parameter] public string Value { get; set; }
+
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+    [Parameter] public Expression<Func<string>> ValueExpression { get; set; }
+
+    [CascadingParameter] private EditContext CascadingEditContext { get; set; }
+
+    private bool wasTouched = false;
+    private bool wasBlurred = false;
+    private bool isFocused = false;
+
+
+    private bool ShouldFloat => isFocused || !string.IsNullOrWhiteSpace(Value);
+
+    private bool ShowError
+    {
+        get
+        {
+            if (ValueExpression == null || CascadingEditContext == null) return false;
+
+            var field = FieldIdentifier.Create(ValueExpression);
+            var hasValidationError = CascadingEditContext.GetValidationMessages(field).Any();
+
+            return ((wasTouched || wasBlurred) && string.IsNullOrWhiteSpace(Value)) || hasValidationError;
+        }
+    }
+
+    private async Task OnValueChanged(string newValue)
+    {
+        Value = newValue;
+        wasTouched = true;
+        await ValueChanged.InvokeAsync(newValue);
+    }
+
+    private void HandleBlur()
+    {
+        wasBlurred = true;
+        isFocused = false;
+        if (CascadingEditContext != null && ValueExpression != null)
+        {
+            var field = FieldIdentifier.Create(ValueExpression);
+            CascadingEditContext.NotifyFieldChanged(field);
+        }
+
+    }
+
+    private void HandleFocus()
+    {
+        isFocused = true;
+        wasTouched = true;
+    }
+}
