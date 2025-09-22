@@ -1,0 +1,57 @@
+﻿@using System.Linq.Expressions
+
+<div class="floating-input @(ShouldFloat ? "float" : "") @(HideLabel ? "hide-label" : "")">
+    <input value="@Value"
+           @oninput="OnInput"
+           @onfocus="HandleFocusInternal"
+           @onblur="HandleBlurInternal"
+           type="@Type"
+           id="@Id"
+           placeholder=" "
+           class="form-control @InputClass" />
+
+    <label for="@Id" class="@LabelClass">@Label</label>
+</div>
+
+@code {
+    [Parameter] public string Label { get; set; }
+    [Parameter] public string Id { get; set; } = Guid.NewGuid().ToString();
+    [Parameter] public string Type { get; set; } = "text";
+    [Parameter] public string Value { get; set; }
+    [Parameter] public string InputClass { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+    [Parameter] public Expression<Func<string>> ValueExpression { get; set; }
+
+    [Parameter] public string LabelClass { get; set; } = string.Empty;
+    [Parameter] public EventCallback OnBlur { get; set; }
+    [Parameter] public EventCallback OnFocus { get; set; }
+
+    private bool isFocused = false;
+
+    private bool HideLabel => !isFocused && !string.IsNullOrWhiteSpace(Value);
+    private bool ShouldFloat => isFocused || !string.IsNullOrWhiteSpace(Value);
+    public bool IsFloating => isFocused || !string.IsNullOrWhiteSpace(Value);
+
+
+    private async Task HandleFocusInternal()
+    {
+        isFocused = true;
+        await OnFocus.InvokeAsync();
+    }
+
+
+    private async Task HandleBlurInternal()
+    {
+        isFocused = false;
+        await OnBlur.InvokeAsync();
+    }
+
+    private async Task OnInput(ChangeEventArgs e)
+    {
+        Value = e.Value?.ToString() ?? string.Empty;
+        await ValueChanged.InvokeAsync(Value);
+    }
+}
+
+
+

@@ -18,6 +18,8 @@ builder.Services.AddCustomServices(builder.Configuration);
 // Autenticación y Autorización con RS256
 builder.Services.AddJwtRsaAuthentication(builder.Configuration);
 
+builder.Services.AddBlazorBootstrap();
+
 var app = builder.Build();
 
 // Middleware pipeline

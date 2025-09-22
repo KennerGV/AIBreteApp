@@ -1,94 +1,4 @@
-﻿/*body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-.left-panel {
-    flex: 1;
-    background-color: #00bfa6;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 40px;
-}
-
-    .left-panel img {
-        max-width: 80%;
-        margin-top: 20px;
-    }
-
-.right-panel {
-    flex: 1;
-    background-color: #0f1c2e;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form-box {
-    width: 80%;
-    max-width: 400px;
-}
-
-.tabs {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.tab {
-    color: #aaa;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-    .tab.active {
-        color: white;
-        border-bottom: 2px solid #00bfa6;
-    }
-
-.input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.checkbox {
-    font-size: 0.9em;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-button {
-    padding: 10px;
-    background-color: #00bfa6;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-}
-
-.member-text {
-    margin-top: 15px;
-    font-size: 0.9em;
-    color: #aaa;
-}
-*/
-body {
+﻿body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -179,6 +89,11 @@ button {
     font-size: 0.9em;
     color: #aaa;
 }
+
+.text-danger {
+    white-space: pre-line;
+}
+
 
 /* --- 🔽 Ajustes en pantallas pequeñas --- */
 @media (max-width: 768px) {
